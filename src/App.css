@@ -36,3 +36,263 @@
     transform: rotate(360deg);
   }
 }
+
+
+.app-bar-container{
+  box-shadow: 2px 2px 20px 0px rgb(0 0 0 / 36%);
+}
+.ant-page-header-heading-title{
+  font-family: 'Supercell-Magic';
+}
+button{
+  font-family: 'Supercell-Magic'!important;
+  
+}
+input{
+  font-family: 'Supercell-Magic'!important;
+}
+.ant-page-header{
+  font-family: 'Supercell-Magic';
+}
+.ant-page-header.ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title,.ant-dropdown-menu-title-content{
+  font-family: 'Supercell-Magic';
+}
+
+.ant-dropdown-menu-submenu-title:hover,.ant-dropdown-menu-item:hover{
+  background-color: #61dafb !important;
+}
+
+.mid-div{
+  position: absolute;
+  background-color: #1890ff;
+  height: 250px;
+  width: 90%;
+  margin: 60px;
+  font-family: "Supercell-Magic";
+  color: white;
+  
+  
+}
+.enter-player-tag{
+  position: absolute;
+  top: 15%;
+  font-size: 200%;
+  left: 1%;
+}
+.brawl-image-div{
+  position: absolute;
+    background-image: url("https://brawlstats.com/dist/profile-header-desktop.71d20cd932c234c16b330fc076951b82.png");
+    left: 71.5%;
+    height: 100%;
+    width: 28.5%;
+    background-size: 100% 100%;
+}
+.search-mid-div{
+  top: 45%;
+    position: relative;
+    height: 40%;
+    left: 1%;
+    width: 47%;
+}
+.search-mid-div-input{
+  height: 40%;
+  width: 85%;
+  color: black;
+  
+}
+.search-mid-div-btn{
+  height: 39% !important;
+    width: 11% !important;
+    left: 1%;
+}
+
+.challenge-div{
+  
+  background-color: #054480;
+  height: 90px;
+  width: 90%;
+  margin: 60px;
+  font-family: "Supercell-Magic";
+  color: white;
+}
+
+.ant-spin-dot-item{
+  background-color: #fff200 !important;
+}
+
+.mid-div-player-tag{
+
+  margin-top: 5%;
+  margin-left: 4%;
+  font-size: x-small;
+}
+
+.mid-div-playerIcon{
+  
+  height: 35%;
+  margin-left: 4%;
+  display: inline-block !important;
+}
+.playerProfile-progress-bar-expirience{
+  background-color: brown;
+  height: 21px;
+  width: 120px;
+  border: black solid 1px;
+  margin-left: 4%;
+  margin-top: 2%;
+  position: absolute;
+  font-size: x-small;
+  
+}
+
+.playerProfile-progress-bar-expirience-icon{
+  background-image: 	url("https://brawlstats.com/dist/level.62e256c79f65c09ceaaad72d19e4cab6.png");
+  
+    height: 42px;
+    width: 43px;
+    position: absolute;
+    background-size: contain;
+    top: -11px;
+    left: -22px;
+    font-size: xx-small;
+    padding-top: 15px;
+    padding-left: 11px;
+}
+
+.playerProfile-progress-numbers{
+  margin-left: 22px;
+    /* top: 27px; */
+    padding-top: 1px;
+}
+.playerProfile-progress-expirience{
+  height: 19px;
+  
+  background-color: rgb(113, 193, 239);
+  
+}
+
+.playerProfile-progress-bar-trophies{
+  background-color: brown;
+  height: 21px;
+  width: 120px;
+  border: black solid 1px;
+  margin-left: 200px;
+  margin-top: 2%;
+  position: absolute;
+  font-size: x-small;
+}
+
+.playerProfile-progress-trophies{
+  height: 19px;
+  
+  background-color: #e4d613;
+}
+
+.playerProfile-progress-bar-trophies-icon{
+  background-image: 	url("https://static.wikia.nocookie.net/brawlstars/images/c/cd/Trophy.png");
+  
+    height: 28px;
+    width: 37px;
+    position: absolute;
+    background-size: contain;
+    top: -5px;
+    left: -16px;
+    
+    
+
+}
+
+.playerProfile-game-modes{
+  position: absolute;
+  background-color: white;
+  height: 250px;
+  width: 90%;
+  margin: 60px;
+  margin-top: 350px;
+  font-family: "Supercell-Magic";
+  color: white;
+}
+
+.player-highest-trophies{
+  display: inline-block;
+  height: 50px;
+  width: 400px;
+  background-color: #1890ff;
+  
+  margin-left: 12%;
+  border: black solid 1px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 6px -6px #777;
+  padding: 8px;
+  font-size: small;
+}
+.player-3v3{
+  display: inline-block;
+  height: 50px;
+  width: 400px;
+  background-color: #1890ff;
+  
+  margin-left: 8%;
+  border: black solid 1px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 6px -6px #777;
+  padding: 8px;
+  font-size: small;
+}
+
+.player-brawlers{
+  position: absolute;
+  margin-top: 650px;
+  font-family: "supercell-magic";
+  width: 100%;
+}
+
+.player-brawler{
+  display: inline-block;
+  height: 160px;
+  width: 294px;
+  margin-left: 6%;
+  border: black solid;
+  margin-bottom: 10px;
+}
+
+.player-brawler-name{
+  background-color: black;
+  color: white;
+  /* height: 20px;
+  width: 20px; */
+  width: fit-content;
+  padding: 0.5%;
+  position: absolute;
+  
+}
+.player-brawler-gadgets{
+  position: absolute;
+  width:154px;
+  
+
+  margin-top: -34px;
+  margin-left: 134px;
+  
+  align-items: center;
+  
+}
+
+.brawler-gadget-image{
+  margin: 2px;
+  height:24px
+
+}
+
+.brawler-gadget-div{
+  height: 35px;
+  padding: 2px;
+  width: 38px;
+  display: inline-block;
+  background-color: black;
+}
+
+.brawler-level-stats{
+  padding: 8px;
+  color: white;
+}
