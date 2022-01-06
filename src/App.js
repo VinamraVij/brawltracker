@@ -11,6 +11,7 @@ import Challenge from './challenge';
 
 import PlayerProfile from './PlayerProfile';
 import BrawlerStateContext from './BrawlerContext';
+import BattleLogs from './PlayerProfileComponents/playerBattleComponents/BattleLogs';
 
 
 class App extends Component {
@@ -34,7 +35,11 @@ class App extends Component {
                       
             <Route path = {path} >
               <PlayerProfile></PlayerProfile>
+                
             </Route>
+            <Route path="/playerBattles">
+                  <BattleLogs></BattleLogs>
+                 </Route>
           </Switch>
         </Router>        
       </div>

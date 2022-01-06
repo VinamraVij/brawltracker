@@ -296,3 +296,9 @@ input{
   padding: 8px;
   color: white;
 }
+.battle-logs{
+  position: absolute;
+  font-family: "Supercell-Magic";
+  margin-top: 352px;
+  
+}

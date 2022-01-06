@@ -1,6 +1,6 @@
 import {Button, PageHeader, Input, Avatar, Menu, Dropdown,message,Space,Tooltip} from 'antd';
 import { UserOutlined,DownOutlined } from '@ant-design/icons';
-import { getPlayerData,getAllBrawlersData } from "./ApiActions";
+import { getPlayerData,getAllBrawlersData, getPlayerBattleLog } from "./ApiActions";
 import {withRouter} from 'react-router-dom';
 
 import { Component } from "react";
@@ -40,28 +40,38 @@ class Pagehead extends Component{
 
 
 
-onSearchPress = async ()=>{
-  this.setState({displayLoading: true})
-  let _playerData = await getPlayerData(this.state.playerTag);
-  this.setState({displayLoading : false})
-  //TODO: Take the user to the next screen of player profile with the data
-  console.log("The data:::");
-  console.log(_playerData);
-  this.props.history.push("/playerProfile", {
-      playerData: _playerData
-  });
-}
-componentDidMount(){
-  console.log(this.context)
-  getAllBrawlersData()
-  .then(response=>{  
-      console.log(response)          
-      this.context?.actions?.updateBrawlers(response.list);
-  })
-  .catch(error=>{
-      alert(error);
-  })
-}
+    onSearchPress = async ()=>{
+      this.setState({displayLoading: true})
+      let _playerData = await getPlayerData(this.state.playerTag);
+    
+      this.setState({displayLoading : false})
+      //TODO: Take the user to the next screen of player profile with the data
+      getPlayerBattleLog(_playerData.tag.substring(1))
+      .then(response=>{
+        console.log(response.data);
+        this.props.history.push("/playerProfile", {
+          playerData: _playerData,
+          playerBattleData :response.data
+      });
+      }).catch(error=>{
+        console.log(error);
+        
+      })
+      console.log("The data:::");
+      console.log(_playerData);
+      
+    }
+    componentDidMount(){
+      console.log(this.context)
+      getAllBrawlersData()
+      .then(response=>{  
+          console.log(response)          
+          this.context?.actions?.updateBrawlers(response.list);
+      })
+      .catch(error=>{
+          alert(error);
+      })
+    }
   
     render(){
         return(

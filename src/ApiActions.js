@@ -30,3 +30,22 @@ export function getAllBrawlersData(){
     })
 
 }
+
+export function getPlayerBattleLog(playerId) {
+
+    return new Promise((resolve,reject)=>{
+        let _playerUrl = "https://api.brawlstars.com/v1/players/%23"+playerId+"/battlelog";
+        axios.post("http://www.maxscriptstechnologies.com:4005/" , {
+        url: _playerUrl,
+        method: "GET",
+        headers: {
+            "Authorization" : "Bearer "+myBrawlKey 
+        }
+    }).then(response=>{
+        resolve(response);
+    }).catch(error=>{
+        reject(error);
+    })
+    })
+    
+}

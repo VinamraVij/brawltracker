@@ -1,5 +1,8 @@
+import { Button } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import React,{Component} from "react";
+import { Link, withRouter } from "react-router-dom";
+import { getPlayerBattleLog } from "../ApiActions";
 
 
 
@@ -60,10 +63,24 @@ class PlayerProfileCentre extends Component{
         
 
     }
+
+    onPlayerBattleLogPress=()=>{
+        this.props.history.push("/playerBattles",{
+            playerData: this.props.playerData,
+            playerBattleData: this.props.playerBattleData
+        })
+    }
+
+    onPlayerStatisticsPress=()=>{
+        this.props.history.push("/playerProfile", {
+            playerData: this.props.playerData,
+            playerBattleData: this.props.playerBattleData
+        })
+    }
     
 
     render(){
-        const playerIcon="https://cdn.brawlstats.com/player-thumbnails/"+this.props.playerData.icon.id+".png";
+        const playerIcon="https://cdn.brawlstats.com/player-thumbnails/"+this.props?.playerData?.icon?.id+".png";
         let _exps = this.state.myExpCalculations;
         
         const expirienceWidth=((_exps?.currentExp/_exps?.nextExp)*118)+"px";
@@ -77,6 +94,10 @@ class PlayerProfileCentre extends Component{
                 <div style={{position: "absolute", marginLeft: "150px", marginTop: "10px"}}>{this.props.playerData.name}</div>
                 <div style={{position: "absolute", marginLeft: "150px", marginTop: "40px"}}><Avatar/>{this.props.playerData.club.name}</div>
                     <img src={playerIcon} className="mid-div-playerIcon" style={{display: "block"}}></img>
+                    <div className="player-profile-center-buttons">
+                    <Button type="link" style={{color: "white"}} onClick={this.onPlayerBattleLogPress}><u>Player Battles</u></Button>
+                    <Button type="link" style={{color: "white"}} onClick={this.onPlayerStatisticsPress}><u>Player Statistics</u></Button>
+                    </div>
                 <div>
                 <div className="brawl-image-div" style={{top: "0%"}}/>
                     
@@ -100,4 +121,4 @@ class PlayerProfileCentre extends Component{
         )
     }
 }
-export default PlayerProfileCentre;
+export default withRouter(PlayerProfileCentre);

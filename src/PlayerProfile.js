@@ -3,6 +3,7 @@ import PlayerProfileCentre from './PlayerProfileComponents/PlayerProfileCentre';
 import {withRouter} from 'react-router-dom';
 import PlayerProfileGameModes from './PlayerProfileComponents/playerProfileGameModes';
 import Brawlers from './PlayerProfileComponents/Brawlers';
+import { brawlerContext } from './BrawlerContext';
 
 class PlayerProfile extends React.Component{
 
@@ -11,23 +12,25 @@ class PlayerProfile extends React.Component{
         console.log("The props:::");
         console.log(this.props)
         this.state=  {
-            playerData : this.props.location?.state?.playerData
+            playerData : this.props.location?.state?.playerData,
+            playerBattleData: this.props.location?.state.playerBattleData
         }
         
         
     }
     componentDidMount(){
+        
         this.setState({
-            playerData: this.props.location?.state?.playerData
+            playerData: this.props.location?.state?.playerData,
+            playerBattleData: this.props.location?.state.playerBattleData
         })
     }
     componentDidUpdate(prevProps, prevState, snapShot){
-        console.log("Component Updated")
-        console.log(this.state)
-        console.log(this.props)
+        
         if(this.props.location?.state?.playerData?.tag != this.state?.playerData?.tag){
             this.setState({
-                playerData: this.props.location?.state?.playerData
+                playerData: this.props.location?.state?.playerData,
+                playerBattleData: this.props.location?.state?.playerBattleData
             })
         }
     }
@@ -37,7 +40,7 @@ class PlayerProfile extends React.Component{
         return(
             <div >
                 
-                <PlayerProfileCentre playerData={this.state.playerData}></PlayerProfileCentre>
+                <PlayerProfileCentre playerData={this.state.playerData} playerBattleData={this.state.playerBattleData}></PlayerProfileCentre>
                 <PlayerProfileGameModes playerData={this.state.playerData}></PlayerProfileGameModes>
                 <Brawlers playerData={this.state.playerData}></Brawlers> 
             </div>
