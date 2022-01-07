@@ -6,7 +6,7 @@ import DuoShowdown from "../PlayerProfileBattleLog/DuoShowdown";
 import HotZone from "../PlayerProfileBattleLog/HotZone";
 import Siege from "../PlayerProfileBattleLog/Siege";
 import SoloShowdown from "../PlayerProfileBattleLog/SoloShowdown";
-import GemGrab from "./GemGrab";
+import GemGrab from "../PlayerProfileBattleLog/GemGrab";
 
 class BattleLog extends Component{
     renderBattleLog(response){
