@@ -1,7 +1,7 @@
 import {Button, PageHeader, Input, Avatar, Menu, Dropdown,message,Space,Tooltip} from 'antd';
 import { UserOutlined,DownOutlined } from '@ant-design/icons';
 import { getPlayerData,getAllBrawlersData, getPlayerBattleLog } from "./ApiActions";
-import {withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 import { Component } from "react";
 
@@ -61,17 +61,7 @@ class Pagehead extends Component{
       console.log(_playerData);
       
     }
-    componentDidMount(){
-      console.log(this.context)
-      getAllBrawlersData()
-      .then(response=>{  
-          console.log(response)          
-          this.context?.actions?.updateBrawlers(response.list);
-      })
-      .catch(error=>{
-          alert(error);
-      })
-    }
+    
   
     render(){
         return(
@@ -86,7 +76,7 @@ class Pagehead extends Component{
     </a>
   </Dropdown>
           
-        ]} avatar = {{src: "https://i.pinimg.com/originals/52/56/48/525648ce169fd2b5fae7a06158262af8.png",size: 'large'}} className='app-bar-container'  title = "Brawl Tracker"  extra = {[
+        ]} avatar = {{src: "https://i.pinimg.com/originals/52/56/48/525648ce169fd2b5fae7a06158262af8.png",size: 'large'}} className='app-bar-container'  title = {[<Link to="/" style={{color:"black"}}>Brawl Tracker</Link>]}  extra = {[
          
           <Search placeholder='Player code' onSearch={this.onSearchPress} onChange={(event=>{
             this.setState({

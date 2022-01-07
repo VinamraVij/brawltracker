@@ -1,4 +1,5 @@
 import React, {createContext} from 'react';
+import { getAllBrawlersData } from './ApiActions';
 
 export const brawlerContext = createContext({});
 
@@ -6,6 +7,7 @@ class BrawlerStateContext extends React.Component{
 
     constructor(props){
         super(props);
+        console.log("first here")
         this.state = {
             brawlers: []
         }
@@ -15,6 +17,18 @@ class BrawlerStateContext extends React.Component{
     updateBrawlers = (brawlersList)=>{
         this.setState({
             brawlers: brawlersList
+        })
+    }
+
+    componentDidMount(){
+        console.log(this.context)
+        getAllBrawlersData()
+        .then(response=>{  
+            console.log(response)          
+            this.updateBrawlers(response.list);
+        })
+        .catch(error=>{
+            alert(error);
         })
     }
 
@@ -32,5 +46,5 @@ class BrawlerStateContext extends React.Component{
     }
 
 }
-
+BrawlerStateContext.contextType=brawlerContext
 export default BrawlerStateContext;

@@ -65,7 +65,7 @@ input{
 .mid-div{
   position: absolute;
   background-color: #1890ff;
-  height: 250px;
+  height: 270px;
   width: 90%;
   margin: 60px;
   font-family: "Supercell-Magic";
@@ -300,5 +300,46 @@ input{
   position: absolute;
   font-family: "Supercell-Magic";
   margin-top: 352px;
+  width: 95%;
+  text-align: center;
+}
+
+.battle-log{
+  background-color: #1890ff;
+  margin:60px;
+  margin-right: 0px;
+  height: 250px;
+  font-size: 25px;
+  color: white
   
+}
+
+.battle-log-info{
+  height: 100px;
+  width: 100%;
+  background-color: darkblue;
+  color: white;
+  padding: 8px;
+  display: inline-block;
+}
+.battle-log-info-map{
+  display: inline-block;
+  position: absolute;
+  font-size:12px;
+}
+.battle-log-info-battle-logo{
+  height:72px;
+}
+.battle-log-info-status{
+  display: inline-block;
+ position: absolute;
+ margin-left: 42%;
+ margin-top:22px;
+ font-size: 25px;
+ 
+
+}
+.battle-log-info-trophy{
+  position: absolute;
+  margin-left: 90%;
 }

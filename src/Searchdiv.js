@@ -3,7 +3,7 @@ import { Button, Tooltip, Spin } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 import Search from "antd/lib/input/Search";
-import { getPlayerData,getAllBrawlersData } from "./ApiActions";
+import { getPlayerData,getAllBrawlersData, getPlayerBattleLog } from "./ApiActions";
 
 import {withRouter} from 'react-router-dom';
 import BrawlerStateContext, { brawlerContext } from "./BrawlerContext";
@@ -21,7 +21,7 @@ class Searchdiv extends Component{
     }
 
     componentDidMount(){
-        console.log(this.context)
+        console.log(this.context+"this")
         getAllBrawlersData()
         .then(response=>{  
             console.log(response)          
@@ -37,14 +37,24 @@ class Searchdiv extends Component{
     onSearchPress = async ()=>{
         this.setState({displayLoading: true})
         let _playerData = await getPlayerData(this.state.playerTag);
+      
         this.setState({displayLoading : false})
         //TODO: Take the user to the next screen of player profile with the data
+        getPlayerBattleLog(_playerData.tag.substring(1))
+        .then(response=>{
+          console.log(response.data);
+          this.props.history.push("/playerProfile", {
+            playerData: _playerData,
+            playerBattleData :response.data
+        });
+        }).catch(error=>{
+          console.log(error);
+          
+        })
         console.log("The data:::");
         console.log(_playerData);
-        this.props.history.push("/playerProfile", {
-            playerData: _playerData
-        });
-    }
+        
+      }
 
     renderSearchButton(){
         if(!this.state.displayLoading){

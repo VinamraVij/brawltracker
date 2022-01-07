@@ -12,12 +12,25 @@ import Challenge from './challenge';
 import PlayerProfile from './PlayerProfile';
 import BrawlerStateContext from './BrawlerContext';
 import BattleLogs from './PlayerProfileComponents/playerBattleComponents/BattleLogs';
+import { getAllBrawlersData } from './ApiActions';
 
 
 class App extends Component {
   constructor(props){
     super(props);
   }
+
+  componentDidMount(){
+    console.log(this.context)
+    getAllBrawlersData()
+    .then(response=>{  
+        console.log(response)          
+        this.context?.actions?.updateBrawlers(response.list);
+    })
+    .catch(error=>{
+        alert(error);
+    })
+}
   
   
 

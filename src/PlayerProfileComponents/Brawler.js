@@ -76,11 +76,7 @@ class Brawler extends Component{
                 if(_bColor=="#f88f25"){
                     _bColor="url(https://brawlstats.com/dist/chromatic.bfc17812b0abfed1239f7abadc39f69c.svg)"
                 }   
-                if(this.props?.brawler?.id===16000048)
-                {
-                    
-                    _bColor="#d850ff"
-                }             
+                            
                 return(
                     <div className="player-brawler" style={{overflow:"hidden",backgroundColor: _bColor || "#000000", backgroundImage:_bColor }} >
                 <div className="player-brawler-name">{this.props.brawler.name}</div>
