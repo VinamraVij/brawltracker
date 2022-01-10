@@ -2,18 +2,18 @@ import React,{Component} from "react";
 import BattleInfoDiv from "../playerBattleComponents/BattleInfoDiv";
 import VsBattle from "../playerBattleComponents/VsBattle";
 
-class GemGrab extends Component{
+class Bounty extends Component{
     render()
     {
-        const img="https://cdn.brawlstats.com/event-icons/event_mode_gem_grab.png"
-        
+        const img="https://cdn.brawlstats.com/event-icons/event_mode_bounty.png"
+        console.log(this.props)
         return(
             <div>
-            <BattleInfoDiv battleLog={this.props.battleLog} brawler={this.props.brawler} img={img}></BattleInfoDiv>
+            <BattleInfoDiv battleLog={this.props.battleLog} img={img}></BattleInfoDiv>
             <VsBattle battleLog={this.props.battleLog} brawler={this.props.brawler}></VsBattle>
             </div>
         )
     }
     
 }
-export default GemGrab;
+export default Bounty;

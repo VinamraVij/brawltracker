@@ -4,9 +4,7 @@ import PlayerProfileCentre from "../PlayerProfileCentre";
 import BattleLog from "./BattleLog";
 
 class BattleLogs extends Component{
-    componentDidMount(){
-        
-    }
+    
 
     render(){
         return (

@@ -7,6 +7,9 @@ class BattleInfoDiv extends Component{
             if(this.props.battleLog?.battle?.trophyChange>0){
                 return <label>VICTORY</label>
             }
+            else if(this.props.battleLog?.battle?.trophyChange==0){
+                return <label>DRAW</label>
+            }
             else{
                 return <label>DEFEAT</label>
             }

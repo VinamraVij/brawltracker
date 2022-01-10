@@ -308,7 +308,7 @@ input{
   background-color: #1890ff;
   margin:60px;
   margin-right: 0px;
-  height: 250px;
+  height: 350px;
   font-size: 25px;
   color: white
   
@@ -342,4 +342,56 @@ input{
 .battle-log-info-trophy{
   position: absolute;
   margin-left: 90%;
+}
+.player-battle-teams{
+  width: 100%;
+}
+.player-battle-team1{
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 24px;
+  text-align: center;
+}
+.player-battle-team1-player{
+  display: inline-block;
+  font-size: 40%;
+}
+
+.player-battle-team1-image{
+  
+  background-size: 100% 100%;
+  margin: 5px;
+  height: 110px;
+  width: 110px;
+}
+.Vs-image{
+  height: 50px;
+  width: 50px;
+  background-size: 100% 100%;
+  display: inline-block;
+  margin-top: 30px;
+  height: 100px;
+  width: 100px;
+  margin-left: 16%;
+  position: absolute;
+}
+
+.player-battle-team2{
+  display: inline-block;
+  margin-left: 40%;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.battle-log-avatar-trophies{
+  background: black;
+  padding: 4px;
+  width: fit-content;
+}
+
+.battle-log-avatar-lvl{
+  background-color: black;
+  padding: 4px;
+  width: fit-content;
+  margin-top: 60px;
 }

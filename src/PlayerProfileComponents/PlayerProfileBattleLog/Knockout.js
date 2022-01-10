@@ -2,10 +2,10 @@ import React,{Component} from "react";
 import BattleInfoDiv from "../playerBattleComponents/BattleInfoDiv";
 import VsBattle from "../playerBattleComponents/VsBattle";
 
-class GemGrab extends Component{
+class Knockout extends Component{
     render()
     {
-        const img="https://cdn.brawlstats.com/event-icons/event_mode_gem_grab.png"
+        const img="https://cdn.brawlstats.com/event-icons/event_mode_knockout.png"
         
         return(
             <div>
@@ -16,4 +16,4 @@ class GemGrab extends Component{
     }
     
 }
-export default GemGrab;
+export default Knockout;
