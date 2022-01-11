@@ -21,7 +21,7 @@ class BrawlerStateContext extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.context)
+        
         getAllBrawlersData()
         .then(response=>{  
             console.log(response)          

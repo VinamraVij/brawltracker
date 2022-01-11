@@ -20,7 +20,7 @@ class BattleInfoDiv extends Component{
     }
 
     render(){
-        console.log(this.props)
+       
         let _color="white";
         if(this.props.battleLog?.battle?.result==='defeat')
         {

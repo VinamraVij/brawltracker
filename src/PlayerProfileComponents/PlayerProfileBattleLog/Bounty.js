@@ -6,7 +6,7 @@ class Bounty extends Component{
     render()
     {
         const img="https://cdn.brawlstats.com/event-icons/event_mode_bounty.png"
-        console.log(this.props)
+        
         return(
             <div>
             <BattleInfoDiv battleLog={this.props.battleLog} img={img}></BattleInfoDiv>

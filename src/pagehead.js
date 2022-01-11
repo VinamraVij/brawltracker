@@ -21,12 +21,12 @@ const menu = (
   );
   function handleButtonClick(e) {
     message.info('Click on left button.');
-    console.log('click left button', e);
+    
   }
   
   function handleMenuClick(e) {
     
-    console.log('click', e);
+    
   }
 class Pagehead extends Component{
   constructor(props){
