@@ -399,3 +399,24 @@ input{
 .duo-showdown-team{
   display: inline-block;
 }
+
+.mid-div-club{
+  
+  position: absolute;
+  background-color: black;
+  height: 270px;
+  width: 90%;
+  margin: 60px;
+  font-family: "Supercell-Magic";
+  color: white;
+  margin-top:356px;
+}
+
+.brawl-image-club{
+  opacity: 0.6;
+  height: 100%;
+  width: 100%;
+  background-image: url('https://i.pinimg.com/originals/e3/b9/16/e3b91690fa1683b97cb0f0a3124cc007.jpg');
+  position: absolute;
+  background-size: 100% 100%;
+}

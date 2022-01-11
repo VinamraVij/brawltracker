@@ -76,7 +76,8 @@ class Pagehead extends Component{
     </a>
   </Dropdown>
           
-        ]} avatar = {{src: "https://i.pinimg.com/originals/52/56/48/525648ce169fd2b5fae7a06158262af8.png",size: 'large'}} className='app-bar-container'  title = {[<Link to="/" style={{color:"black"}}>Brawl Tracker</Link>]}  extra = {[
+        ]} avatar = {{src: "https://i.pinimg.com/originals/52/56/48/525648ce169fd2b5fae7a06158262af8.png",size: 'large'}} className='app-bar-container'  
+        title = {[<Link to="/" style={{color:"black"}}>Brawl Tracker</Link>]}  extra = {[
          
           <Search placeholder='Player code' onSearch={this.onSearchPress} onChange={(event=>{
             this.setState({

@@ -13,6 +13,8 @@ import PlayerProfile from './PlayerProfile';
 import BrawlerStateContext from './BrawlerContext';
 import BattleLogs from './PlayerProfileComponents/playerBattleComponents/BattleLogs';
 import { getAllBrawlersData } from './ApiActions';
+import ClanSearchDiv from './ClanSearchDiv';
+import ClubData from './ClubDataComponents/ClubData';
 
 
 class App extends Component {
@@ -44,6 +46,7 @@ class App extends Component {
           <Switch>
             <Route exact path = "/">
               <Searchdiv></Searchdiv>
+              <ClanSearchDiv></ClanSearchDiv>
             </Route>
                       
             <Route path = {path} >
@@ -52,7 +55,11 @@ class App extends Component {
             </Route>
             <Route path="/playerBattles">
                   <BattleLogs></BattleLogs>
-                 </Route>
+            </Route>
+            <Route path="/clubData">
+              <ClubData></ClubData>
+
+            </Route>
           </Switch>
         </Router>        
       </div>

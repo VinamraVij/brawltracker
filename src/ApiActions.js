@@ -42,8 +42,46 @@ export function getPlayerBattleLog(playerId) {
             "Authorization" : "Bearer "+myBrawlKey 
         }
     }).then(response=>{
-        resolve(response);
+        resolve(response.data);
     }).catch(error=>{
+        reject(error);
+    })
+    })
+    
+}
+
+export function getClubInfo(clubId){
+    return new Promise((resolve,reject)=>{
+        let _clanUrl="https://api.brawlstars.com/v1/clubs/%23"+clubId;
+        console.log(_clanUrl);
+        axios.post("http://www.maxscriptstechnologies.com:4005/" , {
+        url: _clanUrl,
+        method: "GET",
+        headers: {
+            "Authorization" : "Bearer "+myBrawlKey 
+        }
+    }).then(response=>{
+        resolve(response.data);
+    }).catch(error=>{
+        console.log(error)
+        reject(error);
+    })
+    })
+}
+
+export function getIcons(){
+    return new Promise((resolve,reject)=>{
+        let url="https://api.brawlapi.com/v1/icons"
+        axios.post("http://www.maxscriptstechnologies.com:4005/" , {
+        url: url,
+        method: "GET",
+        headers: {
+            "Authorization" : "Bearer "+myBrawlKey 
+        }
+    }).then(response=>{
+        resolve(response.data);
+    }).catch(error=>{
+        console.log(error)
         reject(error);
     })
     })
