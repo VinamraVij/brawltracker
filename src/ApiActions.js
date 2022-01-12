@@ -42,8 +42,11 @@ export function getPlayerBattleLog(playerId) {
             "Authorization" : "Bearer "+myBrawlKey 
         }
     }).then(response=>{
-        resolve(response.data);
+        console.log("here getting battle")
+        console.log(response.data)
+        resolve(response);
     }).catch(error=>{
+        console.log("Cannot get player Battle data")
         reject(error);
     })
     })

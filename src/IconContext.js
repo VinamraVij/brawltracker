@@ -11,6 +11,7 @@ class IconStateContext extends Component{
         this.state={
             icons: []
         }
+        
     }
 
     updateIcons=(iconList)=>{
@@ -45,3 +46,5 @@ class IconStateContext extends Component{
     }
     
 }
+
+export default IconStateContext;

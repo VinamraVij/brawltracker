@@ -7,6 +7,7 @@ class BattleLogs extends Component{
     
 
     render(){
+        console.log(this.props);
         return (
          <div>
              <PlayerProfileCentre playerData={this.props.location?.state?.playerData } playerBattleData={this.props.location?.state?.playerBattleData}/>

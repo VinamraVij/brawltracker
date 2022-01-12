@@ -21,7 +21,7 @@ class Searchdiv extends Component{
     }
 
     componentDidMount(){
-        console.log(this.context+"this")
+        console.log(this.context)
         getAllBrawlersData()
         .then(response=>{  
             console.log(response)          

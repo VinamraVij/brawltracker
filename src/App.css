@@ -420,3 +420,45 @@ input{
   position: absolute;
   background-size: 100% 100%;
 }
+
+
+.club-badge{
+  position: absolute;
+  height: 160px;
+  margin: 50px 50px;
+}
+
+.mid-div-club-tag{
+  position: absolute;
+  margin: 24px 78px;
+}
+
+.mid-div-club-name{
+  position: absolute;
+  margin-top: 56px;
+  margin-left: 20%;
+  font-size: xx-large;
+}
+.mid-div-club-description{
+  position: absolute;
+  margin-top: 120px;
+  margin-left: 20%;
+  font-size: large;
+}
+
+.club-member{
+  margin:38px;
+  display: inline-block;
+  background-color: #1890ff;
+  padding: 5px;
+  height: fit-content;
+}
+.member-name{
+  text-align: center;
+}
+.member-role{
+  text-align: center;
+}
+.member-trophies{
+  text-align: center;
+}

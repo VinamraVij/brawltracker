@@ -15,6 +15,7 @@ import BattleLogs from './PlayerProfileComponents/playerBattleComponents/BattleL
 import { getAllBrawlersData } from './ApiActions';
 import ClanSearchDiv from './ClanSearchDiv';
 import ClubData from './ClubDataComponents/ClubData';
+import IconStateContext, { IconContext } from './IconContext';
 
 
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
   render(){
     const path="/playerProfile"
     return (
+      <IconStateContext>
       <BrawlerStateContext>
       <div>
         <Router>
@@ -64,6 +66,7 @@ class App extends Component {
         </Router>        
       </div>
       </BrawlerStateContext>
+      </IconStateContext>
     )
   }
 
