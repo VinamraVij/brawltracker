@@ -1,9 +1,10 @@
-import {Button, PageHeader, Input, Avatar, Menu, Dropdown,message,Space,Tooltip} from 'antd';
+import {Button, PageHeader, Input, Avatar, Menu, Dropdown,message,Space,Tooltip, Select} from 'antd';
 import { UserOutlined,DownOutlined } from '@ant-design/icons';
-import { getPlayerData,getAllBrawlersData, getPlayerBattleLog } from "./ApiActions";
+import { getPlayerData,getAllBrawlersData, getPlayerBattleLog, getClubInfo } from "./ApiActions";
 import {Link, withRouter} from 'react-router-dom';
 
 import { Component } from "react";
+import { Option } from 'antd/lib/mentions';
 
 const { Search } = Input;
 const menu = (
@@ -28,16 +29,36 @@ const menu = (
     
     
   }
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
+
 class Pagehead extends Component{
   constructor(props){
     super(props);
     this.state = {
         playerTag: '',
         displayLoading: false,
+        clubTag: '',
+        selectedValue: 'Player'
     
     }
 }
 
+onClubSearchPress=()=>{
+  this.setState({displayLoading:true})
+  getClubInfo(this.state.clubTag)
+  .then(response=>{
+    this.setState({displayLoading:false})
+    this.props.history.push("/ClubData",{clubData: response})
+  })
+  .catch(error=>{
+    this.setState({displayLoading:false})
+      console.log(error);
+      alert("Invalid Club Id")
+  })
+  
+}
 
 
     onSearchPress = async ()=>{
@@ -46,7 +67,7 @@ class Pagehead extends Component{
     
       this.setState({displayLoading : false})
       //TODO: Take the user to the next screen of player profile with the data
-      getPlayerBattleLog(_playerData.tag.substring(1))
+      getPlayerBattleLog(_playerData.tag?.substring(1))
       .then(response=>{
         console.log(response.data);
         this.props.history.push("/playerProfile", {
@@ -55,11 +76,43 @@ class Pagehead extends Component{
       });
       }).catch(error=>{
         console.log(error);
-        
+        alert("Invalid Player Id")
       })
       console.log("The data:::");
       console.log(_playerData);
       
+    }
+
+    renderSearch(){
+      if(this.state.selectedValue==='Player')
+      {
+        return (
+          <Search placeholder='Player code' onSearch={this.onSearchPress} onChange={(event=>{
+            this.setState({
+              playerTag: event.target.value
+            })
+          })} loading={this.state.displayLoading} 
+          style={{width: 304}}></Search>
+        )
+      }
+      else{
+        return (
+          <Search placeholder='Club code' onSearch={this.onClubSearchPress} onChange={(event=>{
+            this.setState({
+              clubTag: event.target.value
+            })
+          })} loading={this.state.displayLoading} 
+          style={{width: 304}}></Search>
+        )
+      }
+    }
+    
+    onPlayerClubChange=(event)=>{
+      console.log(event);
+      this.setState({
+        selectedValue: event
+      })
+      console.log(this.state)
     }
     
   
@@ -78,13 +131,14 @@ class Pagehead extends Component{
           
         ]} avatar = {{src: "https://i.pinimg.com/originals/52/56/48/525648ce169fd2b5fae7a06158262af8.png",size: 'large'}} className='app-bar-container'  
         title = {[<Link to="/" style={{color:"black"}}>Brawl Tracker</Link>]}  extra = {[
-         
-          <Search placeholder='Player code' onSearch={this.onSearchPress} onChange={(event=>{
-            this.setState({
-              playerTag: event.target.value
-            })
-          })} loading={this.state.displayLoading}></Search>
-          
+         <div>
+           <Select defaultValue="Player" style={{ width: 120 }} onChange={this.onPlayerClubChange}>
+            <Option value="Player">Player</Option>
+            <Option value="Club">Club</Option>
+      
+          </Select>
+          {this.renderSearch()}
+          </div>
         ]}>
           
         </PageHeader>

@@ -31,6 +31,7 @@ class ClanSearchDiv extends Component{
           .catch(error=>{
             this.setState({displayClubLoading:false})
               console.log(error);
+              alert("Invalid Club Id")
           })
           
       }

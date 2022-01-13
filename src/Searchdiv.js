@@ -40,7 +40,7 @@ class Searchdiv extends Component{
       
         this.setState({displayLoading : false})
         //TODO: Take the user to the next screen of player profile with the data
-        getPlayerBattleLog(_playerData.tag.substring(1))
+        getPlayerBattleLog(_playerData.tag?.substring(1))
         .then(response=>{
           console.log(response.data);
           this.props.history.push("/playerProfile", {
@@ -49,7 +49,7 @@ class Searchdiv extends Component{
         });
         }).catch(error=>{
           console.log(error);
-          
+          alert("Invalid Player Id")
         })
         console.log("The data:::");
         console.log(_playerData);

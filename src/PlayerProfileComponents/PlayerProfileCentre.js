@@ -2,7 +2,7 @@ import { Button } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import React,{Component} from "react";
 import { Link, withRouter } from "react-router-dom";
-import { getPlayerBattleLog } from "../ApiActions";
+import { getClubInfo, getPlayerBattleLog } from "../ApiActions";
 
 
 
@@ -13,8 +13,11 @@ class PlayerProfileCentre extends Component{
     constructor(props){
         super(props);
         this.state = {
-            myExpCalculations: null
+            myExpCalculations: null,
+            clubTag: this.props.playerData?.club?.tag.substring(1),
+            displayClubLoading: false
         }
+        console.log(this.state)
     }
 
     componentDidMount(){
@@ -64,6 +67,21 @@ class PlayerProfileCentre extends Component{
 
     }
 
+    onClubSearchPress=()=>{
+        this.setState({displayClubLoading:true})
+        getClubInfo(this.state.clubTag)
+        .then(response=>{
+          this.setState({displayClubLoading:false})
+          this.props.history.push("/ClubData",{clubData: response})
+        })
+        .catch(error=>{
+          this.setState({displayClubLoading:false})
+            console.log(error);
+            
+        })
+        
+    }
+
     onPlayerBattleLogPress=()=>{
         this.props.history.push("/playerBattles",{
             playerData: this.props.playerData,
@@ -92,7 +110,9 @@ class PlayerProfileCentre extends Component{
                     {this.props.playerData.tag}
                 </div>
                 <div style={{position: "absolute", marginLeft: "150px", marginTop: "10px"}}>{this.props.playerData.name}</div>
-                <div style={{position: "absolute", marginLeft: "150px", marginTop: "40px"}}><Avatar/>{this.props.playerData.club.name}</div>
+                <div  style={{position: "absolute", marginLeft: "150px", marginTop: "40px"}} className="player-profile-center-clubname" onClick={this.onClubSearchPress}>
+                    {this.props.playerData.club.name}
+                    </div>
                     <img src={playerIcon} className="mid-div-playerIcon" style={{display: "block"}}></img>
                     <div className="player-profile-center-buttons">
                     <Button type="link" style={{color: "white"}} onClick={this.onPlayerBattleLogPress}><u>Player Battles</u></Button>

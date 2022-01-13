@@ -453,6 +453,10 @@ input{
   padding: 5px;
   height: fit-content;
 }
+.club-member:hover{
+  cursor: pointer;
+}
+
 .member-name{
   text-align: center;
 }
@@ -461,4 +465,18 @@ input{
 }
 .member-trophies{
   text-align: center;
+}
+
+.member-loading{
+  height: 278px;
+    position: absolute;
+    width: 209px;
+    margin-left: -5px;
+    background-color: white;
+    margin-top: -273px;
+    opacity: 0.5;
+}
+
+.player-profile-center-clubname:hover{
+  cursor: pointer;
 }
